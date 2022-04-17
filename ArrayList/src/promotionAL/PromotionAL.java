@@ -1,27 +1,25 @@
-package promotion;
+package promotionAL;
 
 import java.util.*;
 
-
-
-public class Promotion
+public class PromotionAL
 {
   /*-------------- attributs ------------------*/
 
-  private ArrayList<Etudiant> listeEtudiants;
+  private ArrayList<EtudiantAL> listeEtudiants;
   private int annee;  
   
   /*-------------- constructeurs ------------------*/
 
-  public Promotion()
+  public PromotionAL()
   {
-    listeEtudiants = new ArrayList<Etudiant>();
+    listeEtudiants = new ArrayList<EtudiantAL>();
     annee = 0;
   }
 
-  public Promotion(int a)
+  public PromotionAL(int a)
   {
-    listeEtudiants = new ArrayList<Etudiant>();
+    listeEtudiants = new ArrayList<EtudiantAL>();
     annee = a;
   }
 
@@ -35,7 +33,7 @@ public class Promotion
 	{annee=a;}
 	
 	// ArrayList méthodes size(), get()
-	public Etudiant getEtudiant(int i)
+	public EtudiantAL getEtudiant(int i)
 	{	
 		if (i >=0 && i < listeEtudiants.size())
 			return listeEtudiants.get(i);
@@ -53,7 +51,7 @@ public class Promotion
 	
 	// ArrayList méthodes contains(), return true if contains
 	// ArrayList méthodes add(E e), ajouter élément à la fin de liste
-	public void inscrit(Etudiant e)
+	public void inscrit(EtudiantAL e)
 	{
 		if (! listeEtudiants.contains(e))
 	    listeEtudiants.add(e);
@@ -68,7 +66,7 @@ public class Promotion
 		  double sommeGenerale=0;
 		  Iterator iterator = listeEtudiants.iterator();
 		  while (iterator.hasNext()) {
-			  Etudiant e = (Etudiant) iterator.next();
+			  EtudiantAL e = (EtudiantAL) iterator.next();
 			  sommeGenerale += e.moyenne();
 	      }
 		  return (sommeGenerale / nbEtudiants());
@@ -103,14 +101,17 @@ public class Promotion
 	  }
     }
     
-    public Etudiant checkLastEtudiant() {
+    public EtudiantAL checkLastEtudiant() {
     	return listeEtudiants.get(nbEtudiants() - 1);
     }
     
-    public Etudiant deleteLastEtudiant() {
+    public EtudiantAL deleteLastEtudiant() {
     	return listeEtudiants.remove(nbEtudiants() - 1);
     }
-
+    
+    public int checkPositionToLast(EtudiantAL e) {
+    	return nbEtudiants() - listeEtudiants.indexOf(e);
+    }
  
 }
 

@@ -1,27 +1,27 @@
-package promotion;
+package promotionS;
 
 import java.util.*;
 
 
 
-public class Promotion
+public class PromotionS
 {
   /*-------------- attributs ------------------*/
 
-  private Stack<Etudiant> listeEtudiants;
+  private Stack<EtudiantS> listeEtudiants;
   private int annee;  
   
   /*-------------- constructeurs ------------------*/
 
-  public Promotion()
+  public PromotionS()
   {
-    listeEtudiants = new Stack<Etudiant>();
+    listeEtudiants = new Stack<EtudiantS>();
     annee = 0;
   }
 
-  public Promotion(int a)
+  public PromotionS(int a)
   {
-    listeEtudiants = new Stack<Etudiant>();
+    listeEtudiants = new Stack<EtudiantS>();
     annee = a;
   }
   
@@ -34,10 +34,10 @@ public class Promotion
 	{annee=a;}
 	
 	// Stack hérite les méthodes de Vector, y compris size() et get (int index)
-	public Etudiant getEtudiant(int i)
+	public EtudiantS getEtudiant(int i)
 	{	
 		if (i >=0 && i < listeEtudiants.size())
-			return (Etudiant) listeEtudiants.get(i);
+			return (EtudiantS) listeEtudiants.get(i);
 		else 
 			return null;
 	}
@@ -51,7 +51,7 @@ public class Promotion
 	
 	// Stack méthodes search(Object o) == -1, n'existe pas
 	// Stack méthodes push(E item), ajouter au-dessus de Stack, comme addElement(item). Voir indice, ajouter à la fin.
-	public void inscrit (Etudiant e) {
+	public void inscrit (EtudiantS e) {
 		if (listeEtudiants.search(e) == -1) {
 			listeEtudiants.push(e);
 		}
@@ -66,7 +66,7 @@ public class Promotion
 		  double sommeGenerale=0;
 		  Iterator iterator = listeEtudiants.iterator();
 		  while (iterator.hasNext()) {
-			  Etudiant e = (Etudiant) iterator.next();
+			  EtudiantS e = (EtudiantS) iterator.next();
 			  sommeGenerale += e.moyenne();
 	      }
 		  return (sommeGenerale / nbEtudiants());
@@ -88,14 +88,18 @@ public class Promotion
     }
     
     // Stack méthode peek(), montrer l'objet top de Stack
-    public Etudiant checkLastEtudiant() {
+    public EtudiantS checkLastEtudiant() {
     	return listeEtudiants.peek();
     }
     
     // Stack méthode pop(), supprimer l'objet top de Stack
-    public Etudiant deleteLastEtudiant() {
+    public EtudiantS deleteLastEtudiant() {
     	return listeEtudiants.pop();
     }
-
+    
+    // Stack méthode search(), return position from the top of the stack where the object is located; the return value -1 indicates that the object is not on the stack.
+    public int checkPositionToLast(EtudiantS e) {
+    	return listeEtudiants.search(e);
+    }
 }
 

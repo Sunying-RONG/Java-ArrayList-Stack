@@ -1,8 +1,8 @@
-package promotion;
+package promotionAL;
 
 import java.util.Scanner;
 
-public class Etudiant {
+public class EtudiantAL {
 
 	/****************** Partie attributs ****************************************/
 
@@ -19,24 +19,24 @@ public class Etudiant {
 	/******************** Partie Constructeurs ***************************/
 
 	// Constructeur par défaut qui ne contient aucun parametre
-	public Etudiant() {
+	public EtudiantAL() {
 	}
 
 	// Constructeur qui contient seulement l'attribut nom
-	public Etudiant(String name) {
+	public EtudiantAL(String name) {
 		this.nom = name;
 	}
 
 	// Vous devez ci-dessous définir le constructeur qui initialise tout sauf les
 	// notes de l'étudiant
-	public Etudiant(String nom, int age) {
+	public EtudiantAL(String nom, int age) {
 		this.nom = nom;
 		this.age = age;
 	}
 
 	// Vous devez ci-dessous définir le constructeur qui initialise tout sauf l'age
 	// de l'étudiant
-	public Etudiant(String nom, double noteProg, double noteSyst, double noteStage) {
+	public EtudiantAL(String nom, double noteProg, double noteSyst, double noteStage) {
 		this.nom = nom;
 		this.setNoteProg(noteProg);
 		this.setNoteSyst(noteSyst);
@@ -46,7 +46,7 @@ public class Etudiant {
 	// Vous devez ci-dessous définir le constructeur qui initialise tous les
 	// attributs
 
-	public Etudiant(String nom, int age, double noteProg, 
+	public EtudiantAL(String nom, int age, double noteProg, 
 									double noteSyst, double noteStage) {
 		this.nom = nom;
 		this.age = age;
