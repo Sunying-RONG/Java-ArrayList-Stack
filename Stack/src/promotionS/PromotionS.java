@@ -33,6 +33,14 @@ public class PromotionS
 	public void setAnnee(int a)
 	{annee=a;}
 	
+	public Stack<EtudiantS> getListeEtudiants() {
+		return listeEtudiants;
+	}
+
+	public void setListeEtudiants(Stack<EtudiantS> listeEtudiants) {
+		this.listeEtudiants = listeEtudiants;
+	}
+
 	// Stack hérite les méthodes de Vector, y compris size() et get (int index)
 	public EtudiantS getEtudiant(int i)
 	{	

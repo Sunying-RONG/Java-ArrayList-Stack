@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.Stack;
 
+import complexiteSource.Chrono;
+import promotionAL.EtudiantAL;
+
 public class MainS {
 
 	public static void main(String[] args) throws IOException {
@@ -32,13 +35,55 @@ public class MainS {
 	    P.inscrit(etud6);
 		P.inscrit(etud7);			
 
-		System.out.println(P.getEtudiant(1));
-		System.out.println(P.moyenneIterator());
-		System.out.println(P.moyenneStream());
-		System.out.println("Last "+P.checkLastEtudiant());
-		System.out.println("Delete "+P.deleteLastEtudiant());
-		System.out.println("Last "+P.checkLastEtudiant());
-		System.out.println("Check position from the top(last) "+P.checkPositionToLast(etud5));
+//		System.out.println(P.getEtudiant(1));
+//		System.out.println(P.moyenneIterator());
+//		System.out.println(P.moyenneStream());
+//		System.out.println("Last "+P.checkLastEtudiant());
+//		System.out.println("Delete "+P.deleteLastEtudiant());
+//		System.out.println("Last "+P.checkLastEtudiant());
+//		System.out.println("Check position from the top(last) "+P.checkPositionToLast(etud5));
+		
+		//TEST TEMP AJOUT
+		Chrono chronoAdd=new Chrono("mon chrono");
+		P.getListeEtudiants().clear();
+			
+		for(int essai = 0;essai<1000000;essai++) {
+			chronoAdd.start("Temps-Ajout-Stack");
+			P.getListeEtudiants().push(new EtudiantS());
+			chronoAdd.stop("Temps-Ajout-Stack");
+		}
+		System.out.println("chrono nanoTime() et currentTimeMillis()");
+		System.out.println("Temps d'ajout sur Stack ="+chronoAdd.getResult("Temps-Ajout-Stack")/1000000.0+" ms");
+		System.out.println("total ="+chronoAdd.getResult()/1000000.0+" ms");
+		System.out.println("");
+		
+		//Test Temps Search
+		Chrono chronoSearch=new Chrono("mon chrono3");
+				
+		for(int essai = 0;essai<1000000;essai++) {
+			EtudiantAL etuAL = P.getListeEtudiants().get(essai);
+			chronoIndexOf.start("Temps-IndexOf-AL");
+			P.getListeEtudiants().indexOf(etuAL);
+			chronoIndexOf.stop("Temps-IndexOf-AL");
+		}
+		System.out.println("chrono nanoTime() et currentTimeMillis()");
+		System.out.println("Temps Search indexOf sur AL ="+chronoIndexOf.getResult("Temps-IndexOf-AL")/1000000.0+" ms");
+		System.out.println("total ="+chronoIndexOf.getResult()/1000000.0+" ms");
+		System.out.println("");
+		
+		//Test Temps Delete
+		Chrono chronoDel=new Chrono("mon chrono2");
+		
+		while (! P.getListeEtudiants().empty()) {
+			chronoDel.start("Temps-Del-Stack");
+			P.getListeEtudiants().pop();
+			chronoDel.stop("Temps-Del-Stack");
+		}
+		System.out.println("chrono nanoTime() et currentTimeMillis()");
+		System.out.println("Temps Delete sur Stack ="+chronoDel.getResult("Temps-Del-Stack")/1000000.0+" ms");
+		System.out.println("total ="+chronoDel.getResult()/1000000.0+" ms");
+		System.out.println("");
+
 	}
 
 }

@@ -32,6 +32,14 @@ public class PromotionAL
 	public void setAnnee(int a)
 	{annee=a;}
 	
+	public ArrayList<EtudiantAL> getListeEtudiants() {
+		return listeEtudiants;
+	}
+
+	public void setListeEtudiants(ArrayList<EtudiantAL> listeEtudiants) {
+		this.listeEtudiants = listeEtudiants;
+	}
+
 	// ArrayList méthodes size(), get()
 	public EtudiantAL getEtudiant(int i)
 	{	
