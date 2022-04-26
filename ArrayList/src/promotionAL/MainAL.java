@@ -103,7 +103,7 @@ public class MainAL {
 		Chrono chronoDelObj=new Chrono("mon chrono5");
 		
 		for(int essai = 0;essai<1000000;essai++) {
-			EtudiantAL e = P.getListeEtudiants().get(essai);
+			EtudiantAL e = P.getListeEtudiants().get(P.nbEtudiants()-1);
 			chronoDelObj.start("Temps-DelObj-AL");
 			P.getListeEtudiants().remove(e);
 			chronoDelObj.stop("Temps-DelObj-AL");
