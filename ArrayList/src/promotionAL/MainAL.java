@@ -103,8 +103,9 @@ public class MainAL {
 		Chrono chronoDelObj=new Chrono("mon chrono5");
 		
 		for(int essai = 0;essai<1000000;essai++) {
+			EtudiantAL e = P.getListeEtudiants().get(essai);
 			chronoDelObj.start("Temps-DelObj-AL");
-			P.getListeEtudiants().remove(0);
+			P.getListeEtudiants().remove(e);
 			chronoDelObj.stop("Temps-DelObj-AL");
 		}
 		System.out.println("chrono nanoTime() et currentTimeMillis()");
