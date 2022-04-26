@@ -86,18 +86,32 @@ public class MainAL {
 		System.out.println("total ="+chronoIndexOf.getResult()/1000000.0+" ms");
 		System.out.println("");
 		
-		//Test Temps Delete
-		Chrono chronoDel=new Chrono("mon chrono2");
+		//Test Temps Delete index
+//		Chrono chronoDel=new Chrono("mon chrono2");
+//		
+//		for(int essai = 0;essai<1000000;essai++) {
+//			chronoDel.start("Temps-Del-AL");
+//			P.getListeEtudiants().remove(0);
+//			chronoDel.stop("Temps-Del-AL");
+//		}
+//		System.out.println("chrono nanoTime() et currentTimeMillis()");
+//		System.out.println("Temps Delete sur AL ="+chronoDel.getResult("Temps-Del-AL")/1000000.0+" ms");
+//		System.out.println("total ="+chronoDel.getResult()/1000000.0+" ms");
+//		System.out.println("");
+		
+		//Test Temps Delete object
+		Chrono chronoDelObj=new Chrono("mon chrono5");
 		
 		for(int essai = 0;essai<1000000;essai++) {
-			chronoDel.start("Temps-Del-AL");
+			chronoDelObj.start("Temps-DelObj-AL");
 			P.getListeEtudiants().remove(0);
-			chronoDel.stop("Temps-Del-AL");
+			chronoDelObj.stop("Temps-DelObj-AL");
 		}
 		System.out.println("chrono nanoTime() et currentTimeMillis()");
-		System.out.println("Temps Delete sur AL ="+chronoDel.getResult("Temps-Del-AL")/1000000.0+" ms");
-		System.out.println("total ="+chronoDel.getResult()/1000000.0+" ms");
+		System.out.println("Temps Delete objet sur AL ="+chronoDelObj.getResult("Temps-DelObj-AL")/1000000.0+" ms");
+		System.out.println("total ="+chronoDelObj.getResult()/1000000.0+" ms");
 		System.out.println("");
+		
 	}
 
 }
