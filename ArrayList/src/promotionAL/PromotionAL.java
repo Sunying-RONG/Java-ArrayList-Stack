@@ -67,7 +67,7 @@ public class PromotionAL
 	
 	// itérateur
     public double moyenneIterator() {
-	  if (listeEtudiants.isEmpty()) { // Stack méthode empty(), return true s'il n'y a pas d'élément.
+	  if (listeEtudiants.isEmpty()) { // égale à la méthode empty() de Stack, return true s'il n'y a pas d'élément.
 		  return 0;
 	  }
 	  else {
@@ -109,16 +109,24 @@ public class PromotionAL
 	  }
     }
     
+    // la même effet de la méthode peek() de Stack
     public EtudiantAL checkLastEtudiant() {
     	return listeEtudiants.get(nbEtudiants() - 1);
     }
     
+    // la même effet de la méthode pop() de Stack
     public EtudiantAL deleteLastEtudiant() {
     	return listeEtudiants.remove(nbEtudiants() - 1);
     }
     
+    // retourner le même chiffre que la méthode search()
     public int checkPositionToLast(EtudiantAL e) {
-    	return nbEtudiants() - listeEtudiants.indexOf(e);
+    	if (listeEtudiants.indexOf(e) != -1) {
+    		return nbEtudiants() - listeEtudiants.indexOf(e);
+    	} else {
+    		return -1;
+    	}
+    	
     }
  
 }

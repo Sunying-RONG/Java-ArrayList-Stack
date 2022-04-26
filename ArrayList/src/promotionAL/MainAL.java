@@ -34,17 +34,19 @@ public class MainAL {
 	    P.inscrit(etud6);
 		P.inscrit(etud7);			
 
-//		System.out.println(P.getEtudiant(1));
-//		System.out.println(P.moyenneIterator());
-//		System.out.println(P.moyenneStream());
-//		System.out.println(P.moyenneGenerale());
-//		System.out.println("Last "+P.checkLastEtudiant());
-//		System.out.println("Delete "+P.deleteLastEtudiant());
-//		System.out.println("Last "+P.checkLastEtudiant());
-//		System.out.println("Check position from the top(last) "+P.checkPositionToLast(etud5));
+		System.out.println("Info de deuxième étudiant, tester get(int index) : "+P.getEtudiant(1));
+		System.out.println("Calcule note moyenne utilisant iterator : "+P.moyenneIterator());
+		System.out.println("Calcule note moyenne utilisant stream : "+P.moyenneStream());
+		System.out.println("Calcule note moyenne for boucle: "+P.moyenneGenerale());
+		System.out.println("Info du dernier étudiant : "+P.checkLastEtudiant());
+		System.out.println("Supprimer le dernier étudiant et le retourner : "+P.deleteLastEtudiant());
+		System.out.println("Retourner la position du 5ème élément relative au top(le dernier élement, 1 pour le dernier) :"+P.checkPositionToLast(etud5));
+		System.out.println("Nombre total des éléments dans la liste : "+P.nbEtudiants());
+		System.out.println("");
 		
 		//TEST TEMP AJOUT
 		Chrono chronoAdd=new Chrono("mon chrono");
+		// supprimer les éléments dans liste pour commencer le test.
 		P.getListeEtudiants().clear();
 			
 		for(int essai = 0;essai<1000000;essai++) {
@@ -96,9 +98,6 @@ public class MainAL {
 		System.out.println("Temps Delete sur AL ="+chronoDel.getResult("Temps-Del-AL")/1000000.0+" ms");
 		System.out.println("total ="+chronoDel.getResult()/1000000.0+" ms");
 		System.out.println("");
-		
-		
-
 	}
 
 }
