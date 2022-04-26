@@ -5,7 +5,6 @@ import java.util.Scanner;
 import java.util.Stack;
 
 import complexiteSource.Chrono;
-import promotionAL.EtudiantAL;
 
 public class MainS {
 
@@ -57,18 +56,31 @@ public class MainS {
 		System.out.println("total ="+chronoAdd.getResult()/1000000.0+" ms");
 		System.out.println("");
 		
+		//Test Temps Peek
+		Chrono chronoPeek=new Chrono("mon chrono4");
+				
+		for(int essai = 0;essai<1000000;essai++) {
+			chronoPeek.start("Temps-Peek-Stack");
+			P.getListeEtudiants().peek();
+			chronoPeek.stop("Temps-Peek-Stack");
+		}
+		System.out.println("chrono nanoTime() et currentTimeMillis()");
+		System.out.println("Temps Peek sur Stack ="+chronoPeek.getResult("Temps-Peek-Stack")/1000000.0+" ms");
+		System.out.println("total ="+chronoPeek.getResult()/1000000.0+" ms");
+		System.out.println("");
+				
 		//Test Temps Search
 		Chrono chronoSearch=new Chrono("mon chrono3");
 				
 		for(int essai = 0;essai<1000000;essai++) {
-			EtudiantAL etuAL = P.getListeEtudiants().get(essai);
-			chronoIndexOf.start("Temps-IndexOf-AL");
-			P.getListeEtudiants().indexOf(etuAL);
-			chronoIndexOf.stop("Temps-IndexOf-AL");
+			EtudiantS etuS = P.getListeEtudiants().get(essai);
+			chronoSearch.start("Temps-Search-Stack");
+			P.getListeEtudiants().indexOf(etuS);
+			chronoSearch.stop("Temps-Search-Stack");
 		}
 		System.out.println("chrono nanoTime() et currentTimeMillis()");
-		System.out.println("Temps Search indexOf sur AL ="+chronoIndexOf.getResult("Temps-IndexOf-AL")/1000000.0+" ms");
-		System.out.println("total ="+chronoIndexOf.getResult()/1000000.0+" ms");
+		System.out.println("Temps Search sur Stack ="+chronoSearch.getResult("Temps-Search-Stack")/1000000.0+" ms");
+		System.out.println("total ="+chronoSearch.getResult()/1000000.0+" ms");
 		System.out.println("");
 		
 		//Test Temps Delete

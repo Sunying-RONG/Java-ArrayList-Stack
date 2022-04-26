@@ -44,7 +44,6 @@ public class MainAL {
 //		System.out.println("Check position from the top(last) "+P.checkPositionToLast(etud5));
 		
 		//TEST TEMP AJOUT
-		
 		Chrono chronoAdd=new Chrono("mon chrono");
 		P.getListeEtudiants().clear();
 			
@@ -58,7 +57,20 @@ public class MainAL {
 		System.out.println("total ="+chronoAdd.getResult()/1000000.0+" ms");
 		System.out.println("");
 		
-		//Test Temps Search
+		//Test Temps Get
+		Chrono chronoGet=new Chrono("mon chrono4");
+				
+		for(int essai = 0;essai<1000000;essai++) {
+			chronoGet.start("Temps-Get-AL");
+			P.getListeEtudiants().get(essai);
+			chronoGet.stop("Temps-Get-AL");
+		}
+		System.out.println("chrono nanoTime() et currentTimeMillis()");
+		System.out.println("Temps Get sur AL ="+chronoGet.getResult("Temps-Get-AL")/1000000.0+" ms");
+		System.out.println("total ="+chronoGet.getResult()/1000000.0+" ms");
+		System.out.println("");
+		
+		//Test Temps Search IndexOf
 		Chrono chronoIndexOf=new Chrono("mon chrono3");
 				
 		for(int essai = 0;essai<1000000;essai++) {
@@ -68,7 +80,7 @@ public class MainAL {
 			chronoIndexOf.stop("Temps-IndexOf-AL");
 		}
 		System.out.println("chrono nanoTime() et currentTimeMillis()");
-		System.out.println("Temps Search indexOf sur AL ="+chronoIndexOf.getResult("Temps-IndexOf-AL")/1000000.0+" ms");
+		System.out.println("Temps indexOf sur AL ="+chronoIndexOf.getResult("Temps-IndexOf-AL")/1000000.0+" ms");
 		System.out.println("total ="+chronoIndexOf.getResult()/1000000.0+" ms");
 		System.out.println("");
 		
